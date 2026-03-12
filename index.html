@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD DAD! สุขสันต์วันเกิดคุณพ่อ</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: linear-gradient(180deg, #71A4FF 0%, #D4A5ED 50%, #FFC1C1 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px; 
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1); 
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .dad-photo-container {
+            margin-bottom: 30px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dad-photo {
+            width: 250px; 
+            height: 250px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 5px solid #FFD700; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .feature {
+            margin-bottom: 25px;
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .feature h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .message-btn {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            border: 2px solid white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Prompt', sans-serif;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-btn:hover {
+            background: white;
+            color: #D4A5ED;
+            transform: scale(1.05);
+        }
+        
+        .footer-text {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>HBD DAD!</h1>
+        <div class="subtitle">สุขสันต์วันเกิดคุณพ่อ!</div>
+
+        <div class="dad-photo-container">
+            <img src="dad1.jpg" alt="รูปคุณพ่อ" class="dad-photo">
+        </div>
+        
+        <div class="feature">
+            <div class="icon">🥇</div>
+            <h2>สุดยอดคุณพ่อ</h2>
+            <p>ขอบคุณที่เป็นเข็มทิศและ<br>แบบอย่างที่ดีที่สุดเสมอมา</p>
+        </div>
+
+        <div class="dad-photo-container">
+            <img src="dad3.jpg" alt="รูปคุณพ่อ" class="dad-photo">
+        </div>
+
+        <div class="feature">
+            <div class="icon">🌳</div>
+            <h2>รากฐานของเรา</h2>
+            <p>ดูแลครอบครัวด้วยความ<br>รักและความรู้เสมอ</p>
+        </div>
+
+        <div class="dad-photo-container">
+            <img src="dad2.jpg" alt="รูปคุณพ่อ" class="dad-photo">
+        </div>
+
+        <div class="feature">
+            <div class="icon">🧩</div>
+            <h2>ความรักที่สมบูรณ์แบบ</h2>
+            <p>ขอให้ปีนี้เต็มไปด้วยความ<br>สุขและสุขภาพแข็งแรง</p>
+        </div>
+
+        <button class="message-btn" onclick="fireHeartConfetti()">ส่งความรักให้พ่อ 💖</button>
+        <div class="footer-text">(กดปุ่มเพื่อฉลองเลย!)</div>
+    </div>
+
+    <script>
+    // ฟังก์ชันจุดพลุรูปหัวใจ (Confetti Heart)
+    function fireHeartConfetti() {
+        var duration = 3 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = { 
+            startVelocity: 30, 
+            spread: 360, 
+            ticks: 60, 
+            zIndex: 0,
+            shapes: ['heart'] 
+        };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        var interval = setInterval(function() {
+            var timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            var particleCount = 50 * (timeLeft / duration);
+            // จุดพลุรูปหัวใจจากตำแหน่งสุ่ม 2 ฝั่งซ้ายขวา
+            confetti(Object.assign({}, defaults, { particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+            }));
+            confetti(Object.assign({}, defaults, { particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+            }));
+        }, 250);
+    }
+
+    // เพิ่มตรงนี้เพื่อให้หัวใจลอยขึ้นมาเองตอนเพิ่งเปิดเว็บเสร็จ
+    window.onload = function() {
+        setTimeout(fireHeartConfetti, 500); 
+    };
+    </script>
+
+</body>
+</html>
